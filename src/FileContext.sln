@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileContext.Abstractions", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileContext.Core", "FileContext.Core\FileContext.Core.csproj", "{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileContext.Samples.FileSet.Console", "FileContext.Samples.FileSet.Console\FileContext.Samples.FileSet.Console.csproj", "{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE4E46DB-77A1-4163-A39F-DD02863FCBB1} = {BEAD12FB-0FA5-4A86-A28A-30B5794F45D4}
 		{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B} = {BEAD12FB-0FA5-4A86-A28A-30B5794F45D4}
+		{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F} = {31681DF1-245F-4E65-A15B-582BE81CA143}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FE4E46DB-77A1-4163-A39F-DD02863FCBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,5 +31,9 @@ Global
 		{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

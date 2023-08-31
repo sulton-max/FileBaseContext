@@ -19,7 +19,7 @@ public partial class FileSet<TEntity, TKey>
 
     public async IAsyncEnumerable<TEntity> ReadAsync()
     {
-        if (!File.Exists(_filePath)) yield break;
+        if(!Directory.Exists(_filePath) || !File.Exists(_filePath)) yield break;
 
         var fileStream = File.OpenRead(_filePath);
         using var reader = new StreamReader(fileStream);
@@ -33,6 +33,9 @@ public partial class FileSet<TEntity, TKey>
 
     public async ValueTask WriteAsync(IEnumerable<TEntity> entities)
     {
+        var directory = Directory.GetParent(_filePath)!;
+        if (!directory.Exists) directory.Create();
+
         await using var writer = new StreamWriter(_filePath);
         await using var jsonWriter = new JsonTextWriter(writer);
         await jsonWriter.WriteStartArrayAsync();

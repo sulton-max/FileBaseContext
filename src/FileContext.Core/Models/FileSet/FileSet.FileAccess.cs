@@ -1,14 +1,18 @@
-﻿using System.Collections;
-using System.Linq.Expressions;
-using FileContext.Abstractions.Models.Entity;
-using FileContext.Abstractions.Models.FileSet;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace FileContext.Core.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {
+    private string GetFilePath(string folderPath)
+    {
+        var lowercaseEntityName = typeof(TEntity).Name.ToLower();
+        var pluralizedName = _pluralizationProvider.Pluralize(lowercaseEntityName);
+        var fileName = Path.ChangeExtension(pluralizedName, ".json");
+        return Path.Combine(folderPath, fileName);
+    }
+
     internal async IAsyncEnumerable<TEntity> ReadAsync()
     {
         if (!File.Exists(_filePath)) yield break;
@@ -29,7 +33,7 @@ public partial class FileSet<TEntity, TKey>
         await using var jsonWriter = new JsonTextWriter(writer);
         await jsonWriter.WriteStartArrayAsync();
 
-        foreach(var entity in entities)
+        foreach (var entity in entities)
             _serializer.Serialize(jsonWriter, entity);
 
         await jsonWriter.WriteEndArrayAsync();
@@ -42,7 +46,7 @@ public partial class FileSet<TEntity, TKey>
         entity = null;
         var dataString = token.ToString();
 
-        return !string.IsNullOrWhiteSpace(dataString)
-               && (entity = JsonConvert.DeserializeObject<TEntity>(dataString)) != null;
+        return !string.IsNullOrWhiteSpace(dataString) &&
+               (entity = JsonConvert.DeserializeObject<TEntity>(dataString)) != null;
     }
 }

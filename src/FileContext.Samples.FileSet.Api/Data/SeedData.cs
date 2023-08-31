@@ -1,5 +1,5 @@
-﻿using FileContext.Samples.FileSet.Console.DataAccess;
-using FileContext.Samples.FileSet.Console.Models;
+﻿using FileContext.Samples.FileSet.Api.DataAccess;
+using FileContext.Samples.FileSet.Api.Models;
 
 namespace FileContext.Samples.FileSet.Api.Data;
 

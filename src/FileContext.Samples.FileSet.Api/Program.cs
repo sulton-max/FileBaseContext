@@ -1,5 +1,5 @@
 using FileContext.Samples.FileSet.Api.Data;
-using FileContext.Samples.FileSet.Console.DataAccess;
+using FileContext.Samples.FileSet.Api.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -8,8 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FileContext.Core\FileContext.Core.csproj" />
+      <PackageReference Include="Max.FileContext.Core" Version="0.0.1" />
     </ItemGroup>
-
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using FileContext.Abstractions.Models.Entity;
 
-namespace FileContext.Samples.FileSet.Console.Models;
+namespace FileContext.Samples.FileSet.Api.Models;
 
 public class User : IFileSetEntity<Guid>
 {

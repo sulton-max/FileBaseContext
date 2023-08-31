@@ -2,9 +2,9 @@
 
 namespace FileContext.Core.Models.FileSet;
 
-public partial class FileSet<TEntity, TKey>
+internal partial class FileSet<TEntity, TKey>
 {
-    private static void Update(TEntity entity, TEntity updated)
+    public void Update(TEntity entity, TEntity updated)
     {
         var updatableProperties = typeof(TEntity).GetProperties()
             .Where(property => property.Name != nameof(IFileSetEntity<TKey>.Id))

@@ -3,9 +3,9 @@ using Newtonsoft.Json.Linq;
 
 namespace FileContext.Core.Models.FileSet;
 
-public partial class FileSet<TEntity, TKey>
+internal partial class FileSet<TEntity, TKey>
 {
-    private string GetFilePath(string folderPath)
+    public string GetFilePath(string folderPath)
     {
         var lowercaseEntityName = typeof(TEntity).Name.ToLower();
         var pluralizedName = _pluralizationProvider.Pluralize(lowercaseEntityName);
@@ -13,7 +13,7 @@ public partial class FileSet<TEntity, TKey>
         return Path.Combine(folderPath, fileName);
     }
 
-    internal async IAsyncEnumerable<TEntity> ReadAsync()
+    public async IAsyncEnumerable<TEntity> ReadAsync()
     {
         if (!File.Exists(_filePath)) yield break;
 
@@ -27,7 +27,7 @@ public partial class FileSet<TEntity, TKey>
                 yield return entity!;
     }
 
-    internal async ValueTask WriteAsync(IEnumerable<TEntity> entities)
+    public async ValueTask WriteAsync(IEnumerable<TEntity> entities)
     {
         await using var writer = new StreamWriter(_filePath);
         await using var jsonWriter = new JsonTextWriter(writer);
@@ -41,7 +41,7 @@ public partial class FileSet<TEntity, TKey>
         await writer.FlushAsync();
     }
 
-    internal static bool IsValidEntry(JToken token, out TEntity? entity)
+    public bool IsValidEntry(JToken token, out TEntity? entity)
     {
         entity = null;
         var dataString = token.ToString();

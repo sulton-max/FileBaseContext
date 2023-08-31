@@ -1,10 +1,11 @@
-﻿using FileContext.Abstractions.Models.FileSet;
+﻿using FileContext.Abstractions.Models.FileEntry;
+using FileContext.Abstractions.Models.FileSet;
 using FileContext.Core.Services;
 using Newtonsoft.Json;
 
 namespace FileContext.Core.Models.FileSet;
 
-public partial class FileSet<TEntity, TKey>
+internal partial class FileSet<TEntity, TKey>
 {
     private readonly string _filePath;
     private readonly JsonSerializer _serializer;

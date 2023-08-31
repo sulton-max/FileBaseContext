@@ -1,4 +1,5 @@
 ﻿using FileContext.Abstractions.Models.Entity;
+using FileContext.Abstractions.Models.FileEntry;
 
 namespace FileContext.Abstractions.Models.FileSet;
 
@@ -8,7 +9,7 @@ namespace FileContext.Abstractions.Models.FileSet;
 /// </summary>
 /// <typeparam name="TEntity">Entity type</typeparam>
 /// <typeparam name="TKey">Entity primary key type</typeparam>
-public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumerable<TEntity>
+public partial interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumerable<TEntity>
     where TKey : struct where TEntity : class, IFileSetEntity<TKey>
 {
     /// <summary>
@@ -29,7 +30,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>
     ///     A task that represents the asynchronous Find operation. The task result contains the
-    ///     <see cref="IList<{TEntity}" /> for the entity.
+    ///     <see cref="IList{TEntity}" /> for the entity.
     /// </returns>
     ValueTask<IList<TEntity>> FindRangeAsync(
         IEnumerable<TKey> ids,
@@ -121,5 +122,5 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     /// <returns>
     ///     A task that represents the asynchronous Update operation
     /// </returns>
-    public ValueTask SaveChangesAsync(CancellationToken cancellationToken = default);
+    ValueTask SaveChangesAsync(CancellationToken cancellationToken = default);
 }

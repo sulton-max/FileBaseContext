@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Linq.Expressions;
 using FileContext.Abstractions.Models.Entity;
+using FileContext.Abstractions.Models.FileEntry;
 using FileContext.Abstractions.Models.FileSet;
 using FileContext.Core.Extensions;
 
 namespace FileContext.Core.Models.FileSet;
 
 /// <summary>
-///
+/// Represents a collection unit backed by a file
 /// </summary>
-/// <typeparam name="TEntity"></typeparam>
-/// <typeparam name="TKey"></typeparam>
-public partial class FileSet<TEntity, TKey> : IFileSet<TEntity, TKey>
+/// <typeparam name="TEntity">Entity type</typeparam>
+/// <typeparam name="TKey">Entity primary key type</typeparam>
+internal partial class FileSet<TEntity, TKey> : IFileSet<TEntity, TKey>
     where TEntity : class, IFileSetEntity<TKey> where TKey : struct
 {
     public IEnumerator<TEntity> GetEnumerator()

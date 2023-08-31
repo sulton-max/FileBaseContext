@@ -3,25 +3,25 @@ using System.Linq.Expressions;
 
 namespace FileContext.Core.Models.FileSet;
 
-internal partial class FileSet<TEntity, TKey>
+public partial class FileSet<TEntity, TKey>
 {
     public Type ElementType { get; }
     public Expression Expression { get; }
     public IQueryProvider Provider { get; }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public IEnumerator<TEntity> GetEnumerator() => _entries.Select(entry => entry.Entity).GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator() => _entries.Select(entry => entry.Entity).GetEnumerator();
+
+    public IEnumerable<Task<TEntity>> EnumerateAsTask() => _entries.Select(entity => Task.FromResult(entity.Entity));
+
+    public async IAsyncEnumerable<TEntity> EnumerateAsync()
     {
-        return GetEnumerator();
+        foreach (var entity in EnumerateAsTask())
+            yield return await entity;
     }
 
-    public IEnumerator<TEntity> GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
-
-    public IAsyncEnumerator<TEntity> GetAsyncEnumerator(CancellationToken cancellationToken = new CancellationToken())
-    {
-        throw new NotImplementedException();
-    }
-    
+    public IAsyncEnumerator<TEntity>
+        GetAsyncEnumerator(CancellationToken cancellationToken = new CancellationToken()) =>
+        EnumerateAsync().GetAsyncEnumerator(cancellationToken);
 }

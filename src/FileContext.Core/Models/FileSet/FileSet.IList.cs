@@ -3,12 +3,12 @@ using FileContext.Core.Extensions;
 
 namespace FileContext.Core.Models.FileSet;
 
-internal partial class FileSet<TEntity, TKey>
+public partial class FileSet<TEntity, TKey>
 {
     private ValueTask<FileEntityEntry<TEntity>?> FindEntryAsync(TKey id, CancellationToken cancellationToken = default)
     {
         return new ValueTask<FileEntityEntry<TEntity>?>(
-            Task.Run(() => _entities.FirstOrDefault(entity => entity.Data.Id.Equals(id)), cancellationToken));
+            Task.Run(() => _entries.FirstOrDefault(entity => entity.Entity.Id.Equals(id)), cancellationToken));
     }
 
     private ValueTask<IList<FileEntityEntry<TEntity>>> FindEntryRangeAsync(
@@ -17,14 +17,14 @@ internal partial class FileSet<TEntity, TKey>
     )
     {
         return new ValueTask<IList<FileEntityEntry<TEntity>>>(Task.Run(() =>
-                (IList<FileEntityEntry<TEntity>>)_entities.Where(entity => ids.Contains(entity.Data.Id)).ToList(),
+                (IList<FileEntityEntry<TEntity>>)_entries.Where(entity => ids.Contains(entity.Entity.Id)).ToList(),
             cancellationToken));
     }
 
     public ValueTask<TEntity?> FindAsync(TKey id, CancellationToken cancellationToken = default)
     {
         return new ValueTask<TEntity?>(
-            Task.Run(() => _entities.FirstOrDefault(entity => entity.Data.Id.Equals(id))?.Data, cancellationToken));
+            Task.Run(() => _entries.FirstOrDefault(entity => entity.Entity.Id.Equals(id))?.Entity, cancellationToken));
     }
 
     public async ValueTask<IList<TEntity>> FindRangeAsync(
@@ -32,15 +32,15 @@ internal partial class FileSet<TEntity, TKey>
         CancellationToken cancellationToken = default
     )
     {
-        return (await FindEntryRangeAsync(ids, cancellationToken)).Select(entity => entity.Data).ToList();
+        return (await FindEntryRangeAsync(ids, cancellationToken)).Select(entity => entity.Entity).ToList();
     }
 
     public ValueTask<FileEntityEntry<TEntity>> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         return new ValueTask<FileEntityEntry<TEntity>>(Task.Run(() =>
             {
-                _entities.Add(new FileEntityEntry<TEntity>(entity));
-                return _entities.Last();
+                _entries.Add(new FileEntityEntry<TEntity>(entity));
+                return _entries.Last();
             },
             cancellationToken));
     }
@@ -53,8 +53,8 @@ internal partial class FileSet<TEntity, TKey>
         return new ValueTask<IEnumerable<FileEntityEntry<TEntity>>>(Task.Run(() =>
             {
                 // TODO : Resolve multiple enumerations
-                _entities.AddRange(entities.Select(entity => new FileEntityEntry<TEntity>(entity)));
-                return _entities.TakeLast(entities.Count());
+                _entries.AddRange(entities.Select(entity => new FileEntityEntry<TEntity>(entity)));
+                return _entries.TakeLast(entities.Count());
             },
             cancellationToken));
     }
@@ -66,11 +66,11 @@ internal partial class FileSet<TEntity, TKey>
     {
         return new ValueTask<FileEntityEntry<TEntity>>(Task.Run(async () =>
             {
-                // var foundEntity = _entities.FirstOrDefault(e => e.Data.Id.Equals(entity.Id));
+                // var foundEntity = _entries.FirstOrDefault(e => e.Entity.Id.Equals(entity.Id));
                 var foundEntry = await FindEntryAsync(entity.Id, cancellationToken);
                 // TODO : Add custom exceptions
 
-                Update(foundEntry.Data, entity);
+                Update(foundEntry.Entity, entity);
                 return foundEntry;
             },
             cancellationToken));
@@ -84,8 +84,8 @@ internal partial class FileSet<TEntity, TKey>
         return new ValueTask<IList<FileEntityEntry<TEntity>>>(Task.Run(async () =>
             {
                 var foundEntries = await FindEntryRangeAsync(entities.Select(entity => entity.Id), cancellationToken);
-                // var zip = foundEntries.Select(entity => entity.Data).ZipIntersectBy(entities, entity => entity.Id);
-                var zip = foundEntries.Select(entity => entity.Data).ZipIntersectBy(entities, entity => entity.Id);
+                // var zip = foundEntries.Select(entity => entity.Entity).ZipIntersectBy(entities, entity => entity.Id);
+                var zip = foundEntries.Select(entity => entity.Entity).ZipIntersectBy(entities, entity => entity.Id);
 
                 foreach (var (first, second) in zip)
                 {
@@ -108,7 +108,7 @@ internal partial class FileSet<TEntity, TKey>
         // remove entity
         return new ValueTask<FileEntityEntry<TEntity>>(Task.Run(async () =>
             {
-                // var foundEntity = _entities.FirstOrDefault(e => e.Data.Id.Equals(entity.Id));
+                // var foundEntity = _entries.FirstOrDefault(e => e.Entity.Id.Equals(entity.Id));
                 var foundEntity = await FindEntryAsync(entity.Id, cancellationToken);
                 // TODO : Add custom exceptions
 
@@ -127,7 +127,7 @@ internal partial class FileSet<TEntity, TKey>
             {
                 var foundEntries = await FindEntryRangeAsync(entities.Select(entity => entity.Id), cancellationToken);
                 var intersect =
-                    foundEntries.IntersectBy(entities.Select(entity => entity.Id), entity => entity.Data.Id);
+                    foundEntries.IntersectBy(entities.Select(entity => entity.Id), entity => entity.Entity.Id);
 
                 foreach (var entry in intersect)
                     entry.State = FileEntityState.Deleted;
@@ -140,6 +140,6 @@ internal partial class FileSet<TEntity, TKey>
     public ValueTask<IList<TEntity>> ToListAsync(CancellationToken cancellationToken = default)
     {
         return new ValueTask<IList<TEntity>>(
-            Task.Run(() => (IList<TEntity>)_entities.Select(entity => entity.Data).ToList(), cancellationToken));
+            Task.Run(() => (IList<TEntity>)_entries.Select(entity => entity.Entity).ToList(), cancellationToken));
     }
 }

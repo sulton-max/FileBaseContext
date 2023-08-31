@@ -2,7 +2,7 @@
 
 namespace FileContext.Core.Models.FileSet;
 
-internal partial class FileSet<TEntity, TKey>
+public partial class FileSet<TEntity, TKey>
 {
     public void Update(TEntity entity, TEntity updated)
     {

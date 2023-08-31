@@ -1,10 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using FileContext.Core.Services;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace FileContext.Core.Models.FileSet;
 
-internal partial class FileSet<TEntity, TKey>
+public partial class FileSet<TEntity, TKey>
 {
+    private readonly JsonSerializer _serializer;
+    private readonly IPluralizationProvider _pluralizationProvider;
+
     public string GetFilePath(string folderPath)
     {
         var lowercaseEntityName = typeof(TEntity).Name.ToLower();

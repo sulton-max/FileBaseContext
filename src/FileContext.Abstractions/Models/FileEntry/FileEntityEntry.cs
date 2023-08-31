@@ -9,7 +9,7 @@ public class FileEntityEntry<TEntity>
     /// <summary>
     /// The entity being tracked by a context
     /// </summary>
-    public TEntity Data { get; set; }
+    public TEntity Entity { get; set; }
 
     /// <summary>
     ///  The state in which an entity is being tracked by a context
@@ -19,6 +19,6 @@ public class FileEntityEntry<TEntity>
     /// <summary>
     /// Instantiates a new <see cref="FileEntityEntry{TEntity}"/> with <see cref="FileEntityState.Unchanged" /> state
     /// </summary>
-    /// <param name="data">initial entity data</param>
-    public FileEntityEntry(TEntity data) => Data = data;
+    /// <param name="entity">initial entity entity</param>
+    public FileEntityEntry(TEntity entity) => Entity = entity;
 }

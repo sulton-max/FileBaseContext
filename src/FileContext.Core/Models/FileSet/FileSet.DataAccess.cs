@@ -5,30 +5,21 @@ using Newtonsoft.Json;
 
 namespace FileContext.Core.Models.FileSet;
 
-internal partial class FileSet<TEntity, TKey>
+public partial class FileSet<TEntity, TKey>
 {
     private readonly string _filePath;
-    private readonly JsonSerializer _serializer;
-    private readonly IPluralizationProvider _pluralizationProvider;
-    private readonly List<FileEntityEntry<TEntity>> _entities = new();
-
-    public FileSet(string folderPath, JsonSerializer serializer, IPluralizationProvider? pluralizationProvider)
-    {
-        _serializer = serializer;
-        _pluralizationProvider = pluralizationProvider ?? new HumanizerPluralizationProvider();
-        (_filePath, _serializer) = (GetFilePath(folderPath), JsonSerializer.CreateDefault());
-    }
+    private readonly List<FileEntityEntry<TEntity>> _entries = new();
 
     public async ValueTask FetchAsync()
     {
         await foreach (var entity in ReadAsync())
-            _entities.Add(new FileEntityEntry<TEntity>(entity));
+            _entries.Add(new FileEntityEntry<TEntity>(entity));
     }
 
     public async ValueTask SyncAsync()
     {
-        var entitiesToSync = _entities.Where(entity => entity.State != FileEntityState.Deleted)
-            .Select(entry => entry.Data);
+        var entitiesToSync = _entries.Where(entity => entity.State != FileEntityState.Deleted)
+            .Select(entry => entry.Entity);
 
         await WriteAsync(entitiesToSync);
     }

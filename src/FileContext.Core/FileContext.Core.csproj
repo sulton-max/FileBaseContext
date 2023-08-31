@@ -5,9 +5,10 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.0.2</Version>
-        <Title>WoW.FileContext.Core</Title>
+        <Version>0.0.1</Version>
+        <Title>FileContext.Core</Title>
         <Authors>Sultonbek Rakhimov</Authors>
+        <PackageId>Max.FileContext.Core</PackageId>
     </PropertyGroup>
 
     <ItemGroup>

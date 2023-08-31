@@ -29,9 +29,9 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>
     ///     A task that represents the asynchronous Find operation. The task result contains the
-    ///     <see cref="IEnumerable{TEntity}" /> for the entity.
+    ///     <see cref="IList<{TEntity}" /> for the entity.
     /// </returns>
-    ValueTask<IEnumerable<TEntity>> FindRangeAsync(
+    ValueTask<IList<TEntity>> FindRangeAsync(
         IEnumerable<TKey> ids,
         CancellationToken cancellationToken = default
     );
@@ -46,7 +46,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Add operation. The task result contains the
     ///     <see cref="TEntity" /> for the entity.
     /// </returns>
-    ValueTask<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
+    ValueTask<FileEntityEntry<TEntity>> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Adds the given entities to the context
@@ -57,7 +57,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Add operation. The task result contains the
     ///     <see cref="IEnumerable{TEntity}" /> for the entity.
     /// </returns>
-    ValueTask<IEnumerable<TEntity>> AddRangeAsync(
+    ValueTask<IEnumerable<FileEntityEntry<TEntity>>> AddRangeAsync(
         IEnumerable<TEntity> entities,
         CancellationToken cancellationToken = default
     );
@@ -71,7 +71,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Update operation. The task result contains the
     ///     <see cref="TEntity" /> for the entity.
     /// </returns>
-    ValueTask<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
+    ValueTask<FileEntityEntry<TEntity>> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Updates the given entities in the context
@@ -82,7 +82,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Update operation. The task result contains the
     ///     <see cref="IEnumerable{TEntity}" /> for the entity.
     /// </returns>
-    ValueTask<IEnumerable<TEntity>> UpdateRangeAsync(
+    ValueTask<IList<FileEntityEntry<TEntity>>> UpdateRangeAsync(
         IEnumerable<TEntity> entities,
         CancellationToken cancellationToken = default
     );
@@ -96,7 +96,7 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Remove operation. The task result contains the
     ///     <see cref="TEntity" /> for the entity.
     /// </returns>
-    ValueTask<TEntity> RemoveAsync(TEntity entity, CancellationToken cancellationToken = default);
+    ValueTask<FileEntityEntry<TEntity>> RemoveAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Removes the given entities in the context
@@ -107,10 +107,12 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     ///     A task that represents the asynchronous Remove operation. The task result contains the
     ///     <see cref="IEnumerable{TEntity}" /> for the entity.
     /// </returns>
-    ValueTask<IEnumerable<TEntity>> RemoveRangeAsync(
+    ValueTask<IList<FileEntityEntry<TEntity>>> RemoveRangeAsync(
         IEnumerable<TEntity> entities,
         CancellationToken cancellationToken = default
     );
+
+    ValueTask<IList<TEntity>> ToListAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Saves all changes made in this context to the file base
@@ -119,5 +121,5 @@ public interface IFileSet<TEntity, in TKey> : IQueryable<TEntity>, IAsyncEnumera
     /// <returns>
     ///     A task that represents the asynchronous Update operation
     /// </returns>
-    internal ValueTask SaveChangesAsync(CancellationToken cancellationToken = default);
+    public ValueTask SaveChangesAsync(CancellationToken cancellationToken = default);
 }

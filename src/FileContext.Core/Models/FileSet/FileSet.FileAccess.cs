@@ -19,7 +19,8 @@ public partial class FileSet<TEntity, TKey>
 
     public async IAsyncEnumerable<TEntity> ReadAsync()
     {
-        if(!Directory.Exists(_filePath) || !File.Exists(_filePath)) yield break;
+        var directory = Directory.GetParent(_filePath)!;
+        if(!directory.Exists || !File.Exists(_filePath)) yield break;
 
         var fileStream = File.OpenRead(_filePath);
         using var reader = new StreamReader(fileStream);

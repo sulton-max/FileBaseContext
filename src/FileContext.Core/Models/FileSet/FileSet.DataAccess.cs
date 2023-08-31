@@ -18,9 +18,7 @@ public partial class FileSet<TEntity, TKey>
 
     public async ValueTask SyncAsync()
     {
-        var entitiesToSync = _entries.Where(entity => entity.State != FileEntityState.Deleted)
-            .Select(entry => entry.Entity);
-
-        await WriteAsync(entitiesToSync);
+        _entries.RemoveAll(entry => entry.State == FileEntityState.Deleted);
+        await WriteAsync(_entries.Select(entry => entry.Entity));
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using FileContext.Abstractions.Models.Entity;
+﻿using FileContext.Abstractions.Models.Entity;
 using FileContext.Abstractions.Models.FileSet;
 using FileContext.Core.Services;
 using Newtonsoft.Json;
@@ -18,11 +17,11 @@ public partial class FileSet<TEntity, TKey> : IFileSet<TEntity, TKey>
     {
         _serializer = serializer;
         _pluralizationProvider = pluralizationProvider ?? new HumanizerPluralizationProvider();
-        (_filePath, _serializer) = (GetFilePath(folderPath), JsonSerializer.CreateDefault());
-        ElementType = typeof(TEntity);
+        _filePath = GetFilePath(folderPath);
+        _serializer = JsonSerializer.CreateDefault();
 
         // TODO : implement query provider
     }
-    
+
     public ValueTask SaveChangesAsync(CancellationToken cancellationToken = default) => SyncAsync();
 }

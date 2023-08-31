@@ -532,6 +532,8 @@ var posts = new List<BlogPost>()
 
 var dataContext = new AppDataContext();
 
+// Please delete storage files to see the capability in action for each run
+
 // Initialize seed data
 if (!dataContext.Users.Any())
     await dataContext.Users.AddRangeAsync(users);
@@ -540,6 +542,28 @@ if (!dataContext.Posts.Any())
     await dataContext.Posts.AddRangeAsync(posts);
 
 await dataContext.SaveChangesAsync();
+
+Console.WriteLine("Users : ");
+Console.WriteLine(JsonSerializer.Serialize(dataContext.Users));
+
+Console.WriteLine("\nPosts : ");
+Console.WriteLine(JsonSerializer.Serialize(dataContext.Posts));
+
+// Add capability
+await dataContext.Users.AddAsync(new User(Guid.Parse("A1888D8F-1F2F-4DAB-A78C-F7C3601A2BA7"), "Joniber", "Doniyrov"));
+
+// Update capability
+var updated = dataContext.Users.First();
+updated.FirstName = "Someone";
+await dataContext.Users.UpdateAsync(updated);
+
+// Remove capability
+var removed = dataContext.Users.Last();
+await dataContext.Users.RemoveAsync(removed);
+
+await dataContext.SaveChangesAsync();
+
+Console.WriteLine("After changes");
 
 Console.WriteLine("Users : ");
 Console.WriteLine(JsonSerializer.Serialize(dataContext.Users));

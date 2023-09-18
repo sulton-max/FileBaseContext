@@ -26,11 +26,4 @@ public interface IFileContext
     /// </summary>
     /// <returns>A task that represents the asynchronous save operation</returns>
     ValueTask SaveChangesAsync();
-
-    /// <summary>
-    /// Modifications to be applied before saving changes
-    /// </summary>
-    /// <param name="fileSets">File set collection</param>
-    /// <returns>A task that represents the asynchronous on save modification operation</returns>
-    ValueTask OnSaveChanges(IEnumerable<IFileSet<IFileSetEntity<Guid>, Guid>> fileSets);
 }

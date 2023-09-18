@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C0B778FA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Abstractions", "FileBaseContext.Abstractions\FileBaseContext.Abstractions.csproj", "{FE4E46DB-77A1-4163-A39F-DD02863FCBB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.FileSet", "FileContext.Core\FileBaseContext.FileSet.csproj", "{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Set", "FileContext.Core\FileBaseContext.Set.csproj", "{E8F85E23-9BDB-4EFB-A0F0-78D0ED38A93B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Samples.FileSet.Console", "FileBaseContext.Samples.FileSet.Console\FileBaseContext.Samples.FileSet.Console.csproj", "{8D076E31-4FB9-4221-BDD7-E5FBDEA6E47F}"
 EndProject

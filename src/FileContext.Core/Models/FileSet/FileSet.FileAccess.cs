@@ -1,8 +1,8 @@
-﻿using FileBaseContext.FileSet.Services;
+﻿using FileBaseContext.Set.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace FileBaseContext.FileSet.Models.FileSet;
+namespace FileBaseContext.Set.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

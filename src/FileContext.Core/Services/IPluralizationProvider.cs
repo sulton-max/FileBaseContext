@@ -1,4 +1,4 @@
-﻿namespace FileBaseContext.FileSet.Services;
+﻿namespace FileBaseContext.Set.Services;
 
 public interface IPluralizationProvider
 {

@@ -1,6 +1,6 @@
 ﻿using Humanizer;
 
-namespace FileBaseContext.FileSet.Services;
+namespace FileBaseContext.Set.Services;
 
 public class HumanizerPluralizationProvider : IPluralizationProvider
 {

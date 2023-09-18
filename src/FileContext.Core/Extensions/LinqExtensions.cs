@@ -1,4 +1,4 @@
-﻿namespace FileBaseContext.FileSet.Extensions;
+﻿namespace FileBaseContext.Set.Extensions;
 
 internal static class LinqExtensions
 {

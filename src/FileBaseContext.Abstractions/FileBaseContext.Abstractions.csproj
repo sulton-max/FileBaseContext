@@ -4,10 +4,11 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>Max.FileContext.Abstractions</PackageId>
-        <Version>0.0.1</Version>
-        <Title>FileContext.Abstractions</Title>
+        <PackageId>Max.FileBaseContext.Abstractions</PackageId>
+        <Version>0.0.2</Version>
+        <Title>Max.FileBaseContext.Abstractions</Title>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Max</Authors>
     </PropertyGroup>
 
 

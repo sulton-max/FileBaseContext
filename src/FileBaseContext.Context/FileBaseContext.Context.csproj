@@ -4,6 +4,11 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.0.3</Version>
+        <PackageId>Max.FileBaseContext.Context</PackageId>
+        <Title>Max.FileBaseContext.Context</Title>
+        <Authors>Max</Authors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,5 +16,9 @@
       <ProjectReference Include="..\FileContext.Core\FileBaseContext.Set.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Max.FileBaseContext.Set" Version="0.0.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
-﻿using FileContext.Samples.FileSet.Api.DataAccess;
-using FileContext.Samples.FileSet.Api.Models;
+﻿using FileBaseContext.Samples.FileSet.Api.DataAccess;
+using FileBaseContext.Samples.FileSet.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FileContext.Samples.FileSet.Api.Controllers;
+namespace FileBaseContext.Samples.FileSet.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

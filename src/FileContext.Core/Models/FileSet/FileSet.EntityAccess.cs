@@ -1,6 +1,6 @@
-﻿using FileContext.Abstractions.Models.Entity;
+﻿using FileBaseContext.Abstractions.Models.Entity;
 
-namespace FileContext.Core.Models.FileSet;
+namespace FileBaseContext.FileSet.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

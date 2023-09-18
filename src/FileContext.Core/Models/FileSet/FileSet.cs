@@ -1,9 +1,9 @@
-﻿using FileContext.Abstractions.Models.Entity;
-using FileContext.Abstractions.Models.FileSet;
-using FileContext.Core.Services;
+﻿using FileBaseContext.Abstractions.Models.Entity;
+using FileBaseContext.Abstractions.Models.FileSet;
+using FileBaseContext.FileSet.Services;
 using Newtonsoft.Json;
 
-namespace FileContext.Core.Models.FileSet;
+namespace FileBaseContext.FileSet.Models.FileSet;
 
 /// <summary>
 /// Represents a collection unit backed by a file

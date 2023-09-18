@@ -1,4 +1,4 @@
-﻿namespace FileContext.Abstractions.Models.FileEntry;
+﻿namespace FileBaseContext.Abstractions.Models.FileEntry;
 
 /// <summary>
 /// The state in which an entity is being tracked by a context.

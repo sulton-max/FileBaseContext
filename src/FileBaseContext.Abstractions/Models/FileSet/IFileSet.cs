@@ -1,7 +1,7 @@
-﻿using FileContext.Abstractions.Models.Entity;
-using FileContext.Abstractions.Models.FileEntry;
+﻿using FileBaseContext.Abstractions.Models.Entity;
+using FileBaseContext.Abstractions.Models.FileEntry;
 
-namespace FileContext.Abstractions.Models.FileSet;
+namespace FileBaseContext.Abstractions.Models.FileSet;
 
 /// <summary>
 ///     A <see cref="IFileSet{TEntity,TKey}" /> can be used to query and save instances of <typeparamref name="TEntity" />.

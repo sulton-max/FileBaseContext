@@ -1,6 +1,6 @@
 ﻿using FileContext.Abstractions.Models.Entity;
 
-namespace FileContext.Samples.FileSet.Api.Models;
+namespace FileBaseContext.Samples.FileSet.Api.Models;
 
 public class BlogPost : IFileSetEntity<Guid>
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace FileContext.Core.Models.FileSet;
+namespace FileBaseContext.FileSet.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

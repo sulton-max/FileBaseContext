@@ -1,7 +1,7 @@
-﻿using FileContext.Samples.FileSet.Api.DataAccess;
-using FileContext.Samples.FileSet.Api.Models;
+﻿using FileBaseContext.Samples.FileSet.Api.DataAccess;
+using FileBaseContext.Samples.FileSet.Api.Models;
 
-namespace FileContext.Samples.FileSet.Api.Data;
+namespace FileBaseContext.Samples.FileSet.Api.Data;
 
 public static class SeedData
 {

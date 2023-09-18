@@ -1,4 +1,4 @@
-﻿namespace FileContext.Abstractions.Models.Entity;
+﻿namespace FileBaseContext.Abstractions.Models.Entity;
 
 public interface IFileSetEntity<TKey> where TKey : struct
 {

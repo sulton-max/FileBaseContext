@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace FileContext.Abstractions.Models.FileSet;
+namespace FileBaseContext.Abstractions.Models.FileSet;
 
 public partial interface IFileSet<TEntity, in TKey>
 {

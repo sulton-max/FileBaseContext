@@ -1,8 +1,8 @@
-﻿using FileContext.Abstractions.Models.FileSet;
+﻿using FileBaseContext.Samples.FileSet.Api.Models;
+using FileContext.Abstractions.Models.FileSet;
 using FileContext.Core.Models.FileSet;
-using FileContext.Samples.FileSet.Api.Models;
 
-namespace FileContext.Samples.FileSet.Api.DataAccess;
+namespace FileBaseContext.Samples.FileSet.Api.DataAccess;
 
 public class AppDataContext
 {

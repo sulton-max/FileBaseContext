@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Linq.Expressions;
-
-namespace FileContext.Core.Models.FileSet;
+﻿namespace FileBaseContext.FileSet.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

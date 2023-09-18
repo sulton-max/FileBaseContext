@@ -1,4 +1,4 @@
-﻿namespace FileContext.Abstractions.Models.FileEntry;
+﻿namespace FileBaseContext.Abstractions.Models.FileEntry;
 
 /// <summary>
 /// Provides information about entity state in a file base

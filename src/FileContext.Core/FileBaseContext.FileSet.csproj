@@ -12,7 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FileContext.Abstractions\FileContext.Abstractions.csproj" />
+      <ProjectReference Include="..\FileBaseContext.Abstractions\FileBaseContext.Abstractions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

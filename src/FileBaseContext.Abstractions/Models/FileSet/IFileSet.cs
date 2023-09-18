@@ -9,7 +9,7 @@ namespace FileBaseContext.Abstractions.Models.FileSet;
 /// </summary>
 /// <typeparam name="TEntity">Entity type</typeparam>
 /// <typeparam name="TKey">Entity primary key type</typeparam>
-public partial interface IFileSet<TEntity, in TKey> : IEnumerable<TEntity>
+public partial interface IFileSet<TEntity, in TKey> : IEnumerable<TEntity>, IFileSetBase
     where TKey : struct where TEntity : class, IFileSetEntity<TKey>
 {
     /// <summary>

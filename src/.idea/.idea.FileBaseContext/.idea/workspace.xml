@@ -13,11 +13,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41f5cb7e-aa28-4300-9bb3-f9c2f91e1027" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FileBaseContext.Context/FileBaseContext.Context.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileBaseContext.Context/Models/Configurations/FileContextOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileBaseContext.Context/Models/FileContext/FileContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FileBaseContext/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FileBaseContext/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileBaseContext.Abstractions/Models/FileContext/IFileContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileBaseContext.Abstractions/Models/FileContext/IFileContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileBaseContext.sln" beforeDir="false" afterPath="$PROJECT_DIR$/FileBaseContext.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,13 +26,13 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "git-widget-placeholder": "feature/#27",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/#27&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.FileBaseContext.Samples.Context.Console">
     <configuration name="FileBaseContext.Samples.Context.Console" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />

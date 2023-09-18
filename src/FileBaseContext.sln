@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileBaseContext", "FileBaseContext", "{BEAD12FB-0FA5-4A86-A28A-30B5794F45D4}"
 EndProject
@@ -15,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Samples.FileSet.Api", "FileBaseContext.Samples.FileSet.Api\FileBaseContext.Samples.FileSet.Api.csproj", "{A6D153C4-1491-462E-A436-BEA88AF63F7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Context", "FileBaseContext.Context\FileBaseContext.Context.csproj", "{64DD2ECB-4874-45E6-938E-61A2A5A95D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileBaseContext.Samples.Context.Console", "FileBaseContext.Samples.Context.Console\FileBaseContext.Samples.Context.Console.csproj", "{25E7E303-1D91-4A53-B155-46259CB03478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

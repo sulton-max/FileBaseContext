@@ -1,7 +1,7 @@
-﻿using FileContext.Abstractions.Models.FileEntry;
-using FileContext.Core.Extensions;
+﻿using FileBaseContext.Abstractions.Models.FileEntry;
+using FileBaseContext.FileSet.Extensions;
 
-namespace FileContext.Core.Models.FileSet;
+namespace FileBaseContext.FileSet.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

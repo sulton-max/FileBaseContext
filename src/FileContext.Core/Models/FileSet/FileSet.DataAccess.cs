@@ -1,9 +1,6 @@
-﻿using FileContext.Abstractions.Models.FileEntry;
-using FileContext.Abstractions.Models.FileSet;
-using FileContext.Core.Services;
-using Newtonsoft.Json;
+﻿using FileBaseContext.Abstractions.Models.FileEntry;
 
-namespace FileContext.Core.Models.FileSet;
+namespace FileBaseContext.FileSet.Models.FileSet;
 
 public partial class FileSet<TEntity, TKey>
 {

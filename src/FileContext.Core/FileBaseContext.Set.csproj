@@ -6,19 +6,15 @@
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Version>0.0.1</Version>
-        <Title>FileContext.Core</Title>
-        <Authors>Sultonbek Rakhimov</Authors>
-        <PackageId>Max.FileContext.Core</PackageId>
+        <Title>Max.FileBaseContext.Set</Title>
+        <Authors>Max</Authors>
+        <PackageId>Max.FileBaseContext.Set</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FileBaseContext.Abstractions\FileBaseContext.Abstractions.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Humanizer.Core" Version="2.14.1" />
+      <PackageReference Include="Max.FileBaseContext.Abstractions" Version="0.0.2" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
-
 
 </Project>
